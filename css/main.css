@@ -1,0 +1,68 @@
+/* 문자 인코딩을 명확하게 지정하기 위해 사용 */
+/* 문자 인코딩: 컴퓨터가 글자를 숫자로 변환하는 규칙 */
+/* '한글' 사용시 브라우저가 이해하지 못할까봐 명시해주는 것 */
+@charset 'utf-8';
+
+html {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 14px;
+}
+
+body {
+  /* 가로 스크롤 방지 */
+  overflow-x: hidden;
+  color: rgb(29, 29, 31);
+  letter-spacing: -0.05em;
+  background: #fff;
+}
+
+p {
+  line-height: 1.6;
+}
+
+a {
+  color: rgb(29, 29, 31);
+  text-decoration: none;
+}
+
+.container {
+}
+
+nav {
+}
+
+.global-nav {
+  height: 44px;
+}
+.local-nav {
+  height: 52px;
+  border-bottom: 1px solid #ddd;
+}
+
+.global-nav-links,
+.local-nav-links {
+  display: flex;
+  align-items: center;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+}
+.global-nav-links {
+  justify-content: space-between;
+}
+
+.local-nav-links a.product-name {
+  font-weight: 900;
+  font-size: 1.4em;
+  margin-right: auto;
+}
+
+.local-nav-links a {
+  font-size: 0.8rem;
+}
+
+.local-nav-links a:not(.product-name) {
+  margin-left: 2em;
+
+  border: 1px solid tomato;
+}
