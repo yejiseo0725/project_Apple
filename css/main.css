@@ -78,6 +78,8 @@ nav {
 #scroll-section-0 h1 {
   font-size: 4rem;
   text-align: center;
+
+  color: tomato;
 }
 
 .main-message {
