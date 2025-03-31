@@ -33,9 +33,11 @@ nav {
 
 .global-nav {
   height: 44px;
+  padding: 0 1rem;
 }
 .local-nav {
   height: 52px;
+  padding: 0 1rem;
   border-bottom: 1px solid #ddd;
 }
 
@@ -65,4 +67,43 @@ nav {
   margin-left: 2em;
 
   border: 1px solid tomato;
+}
+
+/* section */
+.scroll-section {
+  padding-top: 50vh;
+}
+
+/* sc-0 */
+#scroll-section-0 h1 {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.main-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3em;
+  font-size: 2.5rem;
+
+  margin: 5px 0;
+}
+.main-message p {
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+}
+
+/* sc-1 */
+.desc {
+  font-size: 1.2rem;
+  color: #888;
+  padding: 0 1rem;
+}
+.desc strong {
+  float: left;
+  font-size: 3rem;
+  color: rgb(29, 29, 31);
+  margin-right: 0.2em;
 }
