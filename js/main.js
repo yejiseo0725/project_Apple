@@ -1,5 +1,7 @@
 // 전역변수 사용 방지
 (() => {
+  let scrollY = 0; // window.scrollY 대신 쓸 변수
+
   const sceneInfo = [
     {
       // 0
@@ -51,7 +53,15 @@
     console.log(sceneInfo);
   }
 
+  function scrollLoop() {
+    console.log(scrollY);
+  }
+
   window.addEventListener("resize", setLayout);
+  window.addEventListener("scroll", () => {
+    scrollY = window.scrollY;
+    scrollLoop();
+  });
 
   setLayout();
 })();
