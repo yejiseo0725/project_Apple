@@ -94,9 +94,16 @@ nav {
   line-height: 1.3;
   text-align: center;
 }
+.main-message span {
+  display: block;
+  font-size: 1.2rem;
+  margin-bottom: 0.5em;
+}
 
 /* sc-1 */
 .desc {
+  max-width: 1000px;
+  margin: 0 auto;
   font-size: 1.2rem;
   color: #888;
   padding: 0 1rem;
@@ -106,4 +113,86 @@ nav {
   font-size: 3rem;
   color: rgb(29, 29, 31);
   margin-right: 0.2em;
+}
+
+/* sc-2 */
+#scroll-section-2 .main-message {
+  font-size: 3.5rem;
+}
+
+.desc-message {
+  width: 50%;
+  font-weight: 500;
+}
+
+.pin {
+  width: 1px;
+  height: 100px;
+  background: rgb(29, 29, 31);
+}
+
+/* sc-3 */
+.mid-message {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 2rem;
+  color: #888;
+  padding: 0 1rem;
+}
+.mid-message strong {
+  color: rgb(29, 29, 31);
+}
+
+p.canvas-caption {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #888;
+  padding: 0 1rem;
+}
+
+/* footer */
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 7rem;
+  background: #f9772c;
+}
+
+/* responsive */
+/* 창 크기 >= 1024px */
+@media (min-width: 1024px) {
+  #scroll-section-0 h1 {
+    font-size: 9vw;
+  }
+  .main-message {
+    font-size: 4vw;
+  }
+  .desc {
+    font-size: 2rem;
+  }
+  .desc strong {
+    font-size: 6rem;
+  }
+
+  #scroll-section-2 .main-message {
+    font-size: 6vw;
+  }
+  .main-message span {
+    font-size: 1.5vw;
+  }
+
+  .desc-message {
+    width: 20%;
+  }
+
+  .mid-message {
+    font-size: 4vw;
+  }
+
+  p.canvas-caption {
+    font-size: 2rem;
+  }
 }
