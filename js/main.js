@@ -12,6 +12,13 @@
       scrollHeight: 0,
       objs: {
         container: document.querySelector("#scroll-section-0"),
+        messageA: document.querySelector("#scroll-section-0 .main-message.a"),
+        messageB: document.querySelector("#scroll-section-0 .main-message.b"),
+        messageC: document.querySelector("#scroll-section-0 .main-message.c"),
+        messageD: document.querySelector("#scroll-section-0 .main-message.d"),
+      },
+      values: {
+        messageA_opacity: [0, 1],
       },
     },
     {
@@ -65,6 +72,29 @@
     // console.log(sceneInfo);
   }
 
+  function calcValues() {}
+
+  // 활성화된 씬에 해당하는 요소들만 애니메이션 처리
+  function playAnimation() {
+    switch (currentScene) {
+      case 0:
+        // console.log("0 play");
+        break;
+
+      case 1:
+        // console.log("111 play");
+        break;
+
+      case 2:
+        // console.log("2222222 play");
+        break;
+
+      case 3:
+        // console.log("333333 play");
+        break;
+    }
+  }
+
   function scrollLoop() {
     // 초기화 시켜 값이 누적되는 것을 방지
     prevScrollHeight = 0;
@@ -85,7 +115,8 @@
       currentScene--;
       document.body.setAttribute("id", `show-scene-${currentScene}`);
     }
-    // console.log(currentScene);
+
+    playAnimation();
   }
 
   window.addEventListener("scroll", () => {
