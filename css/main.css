@@ -97,6 +97,7 @@ nav {
   height: 3em;
   font-size: 2.5rem;
   margin: 5px 0;
+  opacity: 0;
 }
 
 .main-message p {
