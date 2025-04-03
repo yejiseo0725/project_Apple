@@ -19,7 +19,8 @@
         messageD: document.querySelector("#scroll-section-0 .main-message.d"),
       },
       values: {
-        messageA_opacity: [0, 1],
+        messageA_opacity: [0, 1, { start: 0.1, end: 0.2 }],
+        messageB_opacity: [0, 1, { start: 0.3, end: 0.4 }],
       },
     },
     {
@@ -76,9 +77,37 @@
   function calcValues(values, currentScrollY) {
     let rv;
     // 현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
-    let scrollRatio = currentScrollY / sceneInfo[currentScene].scrollHeight;
+    const scrollHeight = sceneInfo[currentScene].scrollHeight;
+    const scrollRatio = currentScrollY / sceneInfo[currentScene].scrollHeight;
 
-    rv = scrollRatio * (values[1] - values[0]) + values[0];
+    if (values.length === 3) {
+      // start ~ end 사이에 애니메이션 실행
+      const partScrollStart = values[2].start * scrollHeight;
+      const partScrollEnd = values[2].end * scrollHeight;
+      const partScrollHeight = partScrollEnd - partScrollStart;
+
+      // 특정 구간에서의 스크롤 비율 계산
+      if (
+        currentScrollY >= partScrollStart &&
+        currentScrollY <= partScrollEnd
+      ) {
+        rv =
+          ((currentScrollY - partScrollStart) / partScrollHeight) *
+            (values[1] - values[0]) +
+          values[0];
+      } else if (currentScrollY < partScrollStart) {
+        rv = values[0];
+      } else if (currentScrollY > partScrollEnd) {
+        rv = values[1];
+      }
+
+      rv =
+        ((currentScrollY - partScrollStart) / partScrollHeight) *
+          (values[1] - values[0]) +
+        values[0];
+    } else {
+      rv = scrollRatio * (values[1] - values[0]) + values[0];
+    }
 
     return rv;
   }
