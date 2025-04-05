@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,15 @@
 			margin: 0;
 			padding: 0;
 		}
+
 		body {
 			height: 500vh;
 		}
+
 		body.before-load {
 			overflow-y: hidden;
 		}
+
 		.sample-canvas {
 			position: fixed;
 			top: 0;
@@ -23,12 +27,14 @@
 		}
 	</style>
 </head>
+
 <body class="before-load">
 	<canvas class="sample-canvas" width="1920" height="1080"></canvas>
 
 	<script>
 		const canvas = document.querySelector('.sample-canvas');
 		const context = canvas.getContext('2d');
+
 		const videoImages = [];
 		let totalImagesCount = 960;
 		let progress;
@@ -60,4 +66,5 @@
 		setImages();
 	</script>
 </body>
+
 </html>

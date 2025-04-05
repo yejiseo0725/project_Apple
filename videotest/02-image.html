@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,12 +10,15 @@
 			margin: 0;
 			padding: 0;
 		}
+
 		body {
 			height: 500vh;
 		}
+
 		body.before-load {
 			overflow-y: hidden;
 		}
+
 		.sample-img {
 			position: fixed;
 			top: 0;
@@ -23,12 +27,13 @@
 		}
 	</style>
 </head>
+
 <body class="before-load">
 	<img class="sample-img" src="../video/002/IMG_7027.JPG">
 
 	<script>
 		const imgElem = document.querySelector('.sample-img');
-		let loadedImageCount= 0;
+		let loadedImageCount = 0;
 		let totalImagesCount = 960;
 		const videoImages = [];
 
@@ -67,6 +72,8 @@
 				});
 			});
 		}
+
 	</script>
 </body>
+
 </html>
