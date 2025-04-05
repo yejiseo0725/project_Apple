@@ -19,8 +19,12 @@
         messageD: document.querySelector("#scroll-section-0 .main-message.d"),
       },
       values: {
-        messageA_opacity: [0, 1, { start: 0.1, end: 0.2 }],
-        messageB_opacity: [0, 1, { start: 0.3, end: 0.4 }],
+        messageA_opacity_in: [0, 1, { start: 0.1, end: 0.2 }],
+        // messageB_opacity_in: [0, 1, { start: 0.3, end: 0.4 }],
+        messageA_translateY_in: [0, 20, { start: 0.1, end: 0.2 }],
+
+        messageA_opacity_out: [1, 0, { start: 0.25, end: 0.3 }],
+        messageA_translateY_out: [20, 0, { start: 0.25, end: 0.3 }],
       },
     },
     {
@@ -62,6 +66,7 @@
     }
 
     scrollY = window.scrollY;
+
     let totalScrollHeight = 0;
     for (let i = 0; i < sceneInfo.length; i++) {
       totalScrollHeight += sceneInfo[i].scrollHeight;
@@ -78,7 +83,7 @@
     let rv;
     // 현재 씬(스크롤섹션)에서 스크롤된 범위를 비율로 구하기
     const scrollHeight = sceneInfo[currentScene].scrollHeight;
-    const scrollRatio = currentScrollY / sceneInfo[currentScene].scrollHeight;
+    const scrollRatio = currentScrollY / scrollHeight;
 
     if (values.length === 3) {
       // start ~ end 사이에 애니메이션 실행
@@ -100,11 +105,6 @@
       } else if (currentScrollY > partScrollEnd) {
         rv = values[1];
       }
-
-      rv =
-        ((currentScrollY - partScrollStart) / partScrollHeight) *
-          (values[1] - values[0]) +
-        values[0];
     } else {
       rv = scrollRatio * (values[1] - values[0]) + values[0];
     }
@@ -116,21 +116,44 @@
   function playAnimation() {
     const objs = sceneInfo[currentScene].objs;
     const values = sceneInfo[currentScene].values;
+    // 전체 문서에서 현재 스크롤된 범위 - 이전 스크롤 범위 값
     const currentScrollY = scrollY - prevScrollHeight;
+    const scrollHeight = sceneInfo[currentScene].scrollHeight;
+    const scrollRatio = currentScrollY / scrollHeight;
 
-    console.log(currentScene);
+    // console.log(currentScene);
 
     switch (currentScene) {
       case 0:
         // console.log("0 play");
-        let messageA_opacity_in = calcValues(
-          values.messageA_opacity,
+        const messageA_opacity_in = calcValues(
+          values.messageA_opacity_in,
           currentScrollY
         );
-        objs.messageA.style.opacity = messageA_opacity_in;
+        const messageA_opacity_out = calcValues(
+          values.messageA_opacity_out,
+          currentScrollY
+        );
+        const messageA_translateY_in = calcValues(
+          values.messageA_translateY_in,
+          currentScrollY
+        );
+        const messageA_translateY_out = calcValues(
+          values.messageA_translateY_out,
+          currentScrollY
+        );
+
+        if (scrollRatio <= 0.22) {
+          // in
+          objs.messageA.style.opacity = messageA_opacity_in;
+          objs.messageA.style.transform = `translateY(${messageA_translateY_in}%)`;
+        } else {
+          // out
+          objs.messageA.style.opacity = messageA_opacity_out;
+          objs.messageA.style.transform = `translateY(${messageA_translateY_out}%)`;
+        }
 
         console.log(messageA_opacity_in);
-
         break;
 
       case 1:

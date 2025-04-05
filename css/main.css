@@ -94,6 +94,7 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  top: 35vh;
   height: 3em;
   font-size: 2.5rem;
   margin: 5px 0;
@@ -167,7 +168,6 @@ p.canvas-caption {
 .sticky-elem {
   display: none;
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
 }
