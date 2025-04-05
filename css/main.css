@@ -134,7 +134,7 @@ nav {
 
 .desc-message {
   width: 50%;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .pin {
@@ -144,6 +144,15 @@ nav {
 }
 
 /* sc-3 */
+#scroll-section-2 .b {
+  top: 10%;
+  left: 40%;
+}
+#scroll-section-2 .c {
+  top: 15%;
+  left: 45%;
+}
+
 .mid-message {
   max-width: 1000px;
   margin: 0 auto;
@@ -212,6 +221,14 @@ p.canvas-caption {
 
   .desc-message {
     width: 20%;
+  }
+
+  #scroll-section-2 .b {
+    top: 20%;
+    left: 53%;
+  }
+  #scroll-section-2 .c {
+    left: 50%;
   }
 
   .mid-message {
