@@ -35,6 +35,7 @@ nav {
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 100%;
   height: 44px;
   padding: 0 1rem;
@@ -43,6 +44,7 @@ nav {
   position: absolute;
   top: 45px;
   left: 0;
+  z-index: 11;
   width: 100%;
   height: 52px;
   padding: 0 1rem;
@@ -185,6 +187,11 @@ p.canvas-caption {
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
   display: block;
+}
+
+.sticky-elem-canvas {
+  top: 0;
+  background: #ccc;
 }
 
 /* footer */
