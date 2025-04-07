@@ -88,6 +88,9 @@ nav {
 
 /* sc-0 */
 #scroll-section-0 h1 {
+  position: relative;
+  top: -10vh;
+  z-index: 5;
   font-size: 4rem;
   text-align: center;
 }
@@ -137,6 +140,7 @@ nav {
 .desc-message {
   width: 50%;
   font-weight: 600;
+  opacity: 0;
 }
 
 .pin {
