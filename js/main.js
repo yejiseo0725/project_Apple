@@ -441,6 +441,7 @@
         }
 
         objs.canvas.style.transform = `scale(${canvasScaleRatio})`;
+        objs.context.fillStyle = "white";
         objs.context.drawImage(objs.images[0], 0, 0);
 
         // 캔버스 사이즈에 맞춰 가정한 innerWidth 와 innerHeight (스크롤바 포함)
@@ -451,7 +452,14 @@
         const recalculatedInnerHeight = window.innerHeight / canvasScaleRatio;
 
         if (!values.rectStartY) {
-          values.rectStartY = objs.canvas.getBoundingClientRect().top;
+          // 스크롤 속도에 따라 달라지는 문제 발생 (getBoundingClientRect)
+          // values.rectStartY = objs.canvas.getBoundingClientRect().top;
+          values.rectStartY =
+            objs.canvas.offsetTop +
+            (objs.canvas.height - objs.canvas.height * canvasScaleRatio) / 2;
+          console.log(values.rectStartY);
+          values.rect1X[2].start = window.innerHeight / 2 / scrollHeight;
+          values.rect2X[2].start = window.innerHeight / 2 / scrollHeight;
           values.rect1X[2].end = values.rectStartY / scrollHeight;
           values.rect2X[2].end = values.rectStartY / scrollHeight;
         }
