@@ -114,6 +114,7 @@
         rect1X: [0, 0, { start: 0, end: 0 }],
         rect2X: [0, 0, { start: 0, end: 0 }],
         blendHeight: [0, 0, { start: 0, end: 0 }],
+        canvas_scale: [0, 0, { start: 0, end: 0 }],
         rectStartY: 0,
       },
     },
@@ -459,7 +460,7 @@
             objs.canvas.height
           );
           objs.context.fillRect(
-            parseInt(values.rect2X[0]),
+            parseInt(values.rect1X[0]),
             0,
             parseInt(whiteRectWidth),
             objs.canvas.height
@@ -518,19 +519,6 @@
         values.rect2X[1] = values.rect2X[0] + whiteRectWidth;
 
         // 좌우 흰색 박스 그리기
-        // x, y, width, height
-        // objs.context.fillRect(
-        //   values.rect1X[0],
-        //   0,
-        //   parseInt(whiteRectWidth),
-        //   objs.canvas.height
-        // );
-        // objs.context.fillRect(
-        //   values.rect2X[0],
-        //   0,
-        //   parseInt(whiteRectWidth),
-        //   objs.canvas.height
-        // );
         objs.context.fillRect(
           parseInt(calcValues(values.rect1X, currentScrollY)),
           0,
@@ -575,6 +563,28 @@
           objs.canvas.style.top = `${
             -(objs.canvas.height - objs.canvas.height * canvasScaleRatio) / 2
           }px`;
+
+          if (scrollRatio > values.blendHeight[2].end) {
+            values.canvas_scale[0] = canvasScaleRatio;
+            values.canvas_scale[1] =
+              document.body.offsetWidth / (1.5 * objs.canvas.width);
+            values.canvas_scale[2].start = values.blendHeight[2].end;
+            values.canvas_scale[2].end = values.canvas_scale[2].start + 0.2;
+
+            objs.canvas.style.transform = `scale(${calcValues(
+              values.canvas_scale,
+              currentScrollY
+            )})`;
+            objs.canvas.style.marginTop = 0;
+          }
+
+          if (
+            scrollRatio > values.canvas_scale[2].end &&
+            values.canvas_scale[2].end > 0
+          ) {
+            objs.canvas.classList.remove("sticky");
+            objs.canvas.style.marginTop = `${scrollHeight * 0.4}px`;
+          }
         }
 
         break;
