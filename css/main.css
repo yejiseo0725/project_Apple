@@ -205,7 +205,9 @@ p.canvas-caption {
   top: 50%;
   left: 50%;
 }
-.image-blend-canvas {
+.image-blend-canvas.sticky {
+  position: fixed;
+  top: 0;
 }
 
 /* sc-4 */

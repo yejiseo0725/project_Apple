@@ -113,6 +113,7 @@
       values: {
         rect1X: [0, 0, { start: 0, end: 0 }],
         rect2X: [0, 0, { start: 0, end: 0 }],
+        blendHeight: [0, 0, { start: 0, end: 0 }],
         rectStartY: 0,
       },
     },
@@ -469,6 +470,7 @@
 
       case 3:
         // console.log('3 play');
+        let step = 0;
         // 가로/세로 모두 꽉 차게 하기 위해 여기서 세팅(계산 필요)
         const widthRatio = window.innerWidth / objs.canvas.width;
         const heightRatio = window.innerHeight / objs.canvas.height;
@@ -541,6 +543,39 @@
           parseInt(whiteRectWidth),
           objs.canvas.height
         );
+
+        if (scrollRatio < values.rect1X[2].end) {
+          step = 1;
+          // 캔버스 닿기 전
+          objs.canvas.classList.remove("sticky");
+        } else {
+          step = 2;
+          // 캔버스 닿은 후
+          // 이미지 블렌드
+          // blendHeight: [0, 0, { start: 0, end: 0 }]
+          values.blendHeight[0] = 0;
+          values.blendHeight[1] = objs.canvas.height;
+          values.blendHeight[2].start = values.rect1X[2].end;
+          values.blendHeight[2].end = values.blendHeight[2].start + 0.2;
+          const blendHeight = calcValues(values.blendHeight, currentScrollY);
+
+          objs.context.drawImage(
+            objs.images[1],
+            0,
+            objs.canvas.height - blendHeight,
+            objs.canvas.width,
+            blendHeight,
+            0,
+            objs.canvas.height - blendHeight,
+            objs.canvas.width,
+            blendHeight
+          );
+
+          objs.canvas.classList.add("sticky");
+          objs.canvas.style.top = `${
+            -(objs.canvas.height - objs.canvas.height * canvasScaleRatio) / 2
+          }px`;
+        }
 
         break;
     }
