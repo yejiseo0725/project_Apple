@@ -44,7 +44,6 @@
 			// 가속도 애니메이션 설정 (감속)
 			delayedYOffset = delayedYOffset + (pageYOffset - delayedYOffset) * acc;
 			box.style.width = `${delayedYOffset}px`;
-			requestAnimationFrame(loop);
 
 			rafID = requestAnimationFrame(loop);
 
