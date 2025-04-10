@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
 		body {
 			height: 500vh;
 		}
+
 		.box {
 			position: fixed;
 			top: 100px;
@@ -18,6 +20,7 @@
 		}
 	</style>
 </head>
+
 <body>
 	<div class="box"></div>
 
@@ -25,26 +28,28 @@
 		const box = document.querySelector('.box');
 		let acc = 0.1;
 		let delayedYOffset = 0;
-		let rafId;
+		let rafID;
 		let rafState;
 
+		// 특정 조건에서 다시 실행시키기
 		window.addEventListener('scroll', () => {
 			// box.style.width = `${window.pageYOffset}px`;
-			if (!rafState) {
-				rafId = requestAnimationFrame(loop);
+			if (rafState == false) {
+				rafID = requestAnimationFrame(loop);
 				rafState = true;
 			}
 		});
 
 		function loop() {
+			// 가속도 애니메이션 설정 (감속)
 			delayedYOffset = delayedYOffset + (pageYOffset - delayedYOffset) * acc;
 			box.style.width = `${delayedYOffset}px`;
-			console.log('loop');
+			requestAnimationFrame(loop);
 
-			rafId = requestAnimationFrame(loop);
+			rafID = requestAnimationFrame(loop);
 
 			if (Math.abs(pageYOffset - delayedYOffset) < 1) {
-				cancelAnimationFrame(rafId);
+				cancelAnimationFrame(rafID);
 				rafState = false;
 			}
 		}
@@ -52,4 +57,5 @@
 		loop();
 	</script>
 </body>
+
 </html>
