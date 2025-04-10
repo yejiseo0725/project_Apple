@@ -174,7 +174,7 @@ nav {
 
 p.canvas-caption {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 8em auto 0;
   font-weight: 300;
   font-size: 1.2rem;
   color: #888;
@@ -236,6 +236,7 @@ p.canvas-caption {
     font-size: 4vw;
   }
   .desc {
+    padding: 0;
     font-size: 2rem;
   }
   .desc strong {
@@ -262,10 +263,13 @@ p.canvas-caption {
   }
 
   .mid-message {
+    width: 1000px;
+    padding: 0;
     font-size: 4vw;
   }
 
   p.canvas-caption {
+    padding: 0;
     font-size: 2rem;
   }
 }
