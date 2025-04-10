@@ -148,6 +148,14 @@
   }
   setCanvasImage();
 
+  function checkMenu() {
+    if (scrollY > 44) {
+      document.body.classList.add("local-nav-sticky");
+    } else {
+      document.body.classList.remove("local-nav-sticky");
+    }
+  }
+
   function setLayout() {
     // 각 스크롤 섹션의 높이 세팅
     for (let i = 0; i < sceneInfo.length; i++) {
@@ -643,6 +651,7 @@
   window.addEventListener("scroll", () => {
     scrollY = window.scrollY;
     scrollLoop();
+    checkMenu();
   });
 
   // load: 전체 로드(이미지, 비디오 등 포함) 후 실행
