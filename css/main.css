@@ -84,6 +84,10 @@ svg.loading-circle circle {
 nav {
 }
 
+body.before-load {
+  overflow: hidden;
+}
+
 .global-nav {
   position: absolute;
   top: 0;
@@ -251,6 +255,8 @@ p.canvas-caption {
 #show-scene-2 #scroll-section-2 .sticky-elem,
 #show-scene-3 #scroll-section-3 .sticky-elem {
   display: block;
+  /* 성능 개선을 위한 최후의 수단 (남발 금지) */
+  will-change: transform, opacity;
 }
 
 .sticky-elem-canvas {
