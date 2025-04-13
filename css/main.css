@@ -30,21 +30,52 @@ a {
   align-items: center;
   justify-content: center;
   position: fixed;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 100;
   background: #fff;
+  opacity: 0;
   transition: 0.5s;
+}
+
+.before-load .loading {
   opacity: 1;
 }
+
+@keyframes loading-spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loading-circle-ani {
+  0% {
+    stroke-dashoffset: 157;
+  }
+  50% {
+    stroke-dashoffset: -147;
+  }
+  100% {
+    stroke-dashoffset: -157;
+  }
+}
+
 svg.loading-circle {
   width: 54px;
   height: 54px;
+  animation: loading-spin 3s infinite;
 }
 svg.loading-circle circle {
   stroke: black;
   stroke-width: 4;
+  /* getTotalLength()로 stroke의 길이를 얻어올 수 있음 */
+  stroke-dasharray: 157;
+  stroke-dashoffset: 0;
   fill: transparent;
+  transition: 1.2s;
+  animation: loading-circle-ani 1s infinite;
 }
 
 .container {
