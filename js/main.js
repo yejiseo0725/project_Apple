@@ -704,6 +704,21 @@
     setLayout();
     sceneInfo[0].objs.context.drawImage(sceneInfo[0].objs.videoImages[0], 0, 0);
 
+    let tempScrollY = scrollY;
+    let tempScrollCount = 0;
+
+    if (scrollY > 0) {
+      let siId = setInterval(() => {
+        window.scrollTo(0, tempScrollY);
+        tempScrollY += 5;
+
+        if (tempScrollCount > 20) {
+          clearInterval(siId);
+        }
+        tempScrollCount++;
+      }, 20);
+    }
+
     window.addEventListener("scroll", () => {
       scrollY = window.pageYOffset;
       scrollLoop();
@@ -716,13 +731,17 @@
     });
 
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 600) {
-        setLayout();
+      if (window.innerWidth > 900) {
+        window.location.reload();
       }
-      sceneInfo[3].values.rectStartY = 0;
     });
 
-    window.addEventListener("orientationchange", setLayout);
+    window.addEventListener("orientationchange", () => {
+      scrollTo(0, 0);
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
+    });
 
     document
       .querySelector(".loading")
