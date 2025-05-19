@@ -147,8 +147,6 @@ nav {
 
 .local-nav-links a:not(.product-name) {
   margin-left: 2em;
-
-  border: 1px solid tomato;
 }
 
 /* section */
@@ -345,7 +343,7 @@ p.canvas-caption {
   .mid-message {
     width: 1000px;
     padding: 0;
-    font-size: 4vw;
+    font-size: 1.7vw;
   }
 
   p.canvas-caption {
