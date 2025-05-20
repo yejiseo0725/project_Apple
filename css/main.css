@@ -191,12 +191,15 @@ nav {
   max-width: 1000px;
   margin: 0 auto;
   font-size: 1.2rem;
+  line-height: 1.7;
+  text-align: justify;
   color: #888;
   padding: 0 1rem;
 }
 .desc strong {
   float: left;
   font-size: 3rem;
+  line-height: 1.2;
   color: rgb(29, 29, 31);
   margin-right: 0.2em;
 }
@@ -204,27 +207,30 @@ nav {
 /* sc-2 */
 #scroll-section-2 .main-message {
   font-size: 3.5rem;
+  color: #fff;
 }
 
 .desc-message {
   width: 50%;
-  font-weight: 600;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #fff;
   opacity: 0;
 }
 
 .pin {
   width: 1px;
   height: 100px;
-  background: rgb(29, 29, 31);
+  background: rgb(255, 255, 255);
 }
 
 #scroll-section-2 .b {
-  top: 10%;
+  bottom: 10%;
   left: 40%;
 }
 #scroll-section-2 .c {
-  top: 15%;
-  left: 45%;
+  bottom: 20%;
+  left: 65%;
 }
 
 .mid-message {
@@ -241,12 +247,12 @@ nav {
 
 p.canvas-caption {
   max-width: 1000px;
-  margin: -24rem auto 0;
-  font-weight: 300;
+  margin: 0 auto;
+  font-weight: 400;
   font-size: 1.2rem;
+  line-height: 1.7;
   color: #888;
-  padding: 0 1rem;
-  /* margin-top: 15rem; */
+  text-align: justify;
 }
 
 /* sticky */
@@ -278,6 +284,11 @@ p.canvas-caption {
   top: 50%;
   left: 50%;
 }
+
+#show-scene-2 #scroll-section-2 .sticky-elem-canvas {
+  filter: brightness(80%);
+}
+
 .image-blend-canvas.sticky {
   position: fixed;
   top: 0;
@@ -347,7 +358,7 @@ p.canvas-caption {
   }
 
   p.canvas-caption {
-    margin-top: -8rem;
+    /* margin-top: -8rem; */
     padding: 0;
     font-size: 2rem;
   }
