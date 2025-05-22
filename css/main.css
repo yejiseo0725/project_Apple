@@ -302,6 +302,21 @@ p.canvas-caption {
 }
 
 /* gallery */
+.gallery .h2-wrap {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 100px;
+}
+.gallery .h2-wrap h2 {
+  font-size: 5rem;
+}
+.gallery .h2-wrap strong {
+  display: block;
+  font-weight: 400;
+  font-size: 1.5rem;
+  margin-top: 15px;
+}
+
 .gallery {
   position: relative;
   height: 100vh;
@@ -309,7 +324,7 @@ p.canvas-caption {
 }
 .gallery ul {
   display: flex;
-  padding: 20% 30% 5% 80%;
+  padding: 7% 50% 5% 70%;
   box-sizing: border-box;
   gap: 100px;
   width: max-content;
