@@ -474,3 +474,21 @@ p.canvas-caption {
     font-size: 2rem;
   }
 }
+
+@media (max-width: 1023px) {
+  p.sticky-p {
+    width: 50%;
+  }
+
+  p.canvas-caption {
+    padding: 0 1rem;
+  }
+
+  .gallery .h2-wrap {
+    padding-left: 30px;
+  }
+
+  .bg-video .video-title p {
+    font-size: 1.3rem;
+  }
+}
