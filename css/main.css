@@ -199,6 +199,46 @@ nav {
   margin-right: 0.2em;
 }
 
+.bg-video {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 200px 0;
+}
+.bg-video .videowrap {
+}
+.bg-video .videowrap video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: brightness(80%);
+}
+
+.bg-video .video-title {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+}
+.bg-video .video-title p {
+  font-weight: 400;
+  font-size: 2.2rem;
+  letter-spacing: -1;
+  line-height: 1.2;
+}
+.bg-video .video-title p i {
+  display: block;
+  font-size: 5rem;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
 /* sc-2 */
 #scroll-section-2 .main-message {
   font-size: 3.5rem;

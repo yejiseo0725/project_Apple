@@ -269,13 +269,22 @@
 
         </section>
 
-        <!-- section 4 -->
-        <section class="normal-content">
-            <p>
-                끝없이 반짝이는 불빛과 무한한 에너지가 흐르는 도시, 라스베이거스는 모든 감각을 깨우는 찰나의 환상 속으로 우리를 데려갑니다.
-                빛, 음악, 속도, 그리고 한순간의 선택이 만들어내는 경험들은 짧지만 강렬하게 마음에 새겨지고, 우리는 그 안에서 자유를 마주하게 됩니다.
-                도박과 공연, 미식과 쇼핑 그 이상을 담은 이 도시는, 예측할 수 없기에 더욱 매혹적이며, 스스로에게 과감해질 수 있는 용기를 선사합니다.
-            </p>
+        <!-- bg-video -->
+        <section class="bg-video">
+
+            <div class="videowrap">
+                <video autoplay="" muted="" loop="" playinline="">
+                    <source src="./video/yosemite.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="video-title">
+                <p>
+                    <i>“Silence speaks in Yosemite”</i>
+                    요세미티에서 침묵이 말을 건다
+                </p>
+            </div>
+
         </section>
 
         <!-- footer -->
@@ -334,6 +343,31 @@
                     }
                 );
             });
+
+            // bg-video
+            let bgVideoTL = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".bg-video",
+                    start: "0% 80%",
+                    end: "100% 100%",
+                    scrub: 1,
+                    markers: true,
+                },
+            });
+
+            bgVideoTL.fromTo(
+                ".bg-video .videowrap video",
+                {
+                    "clip-path": "inset(60% 60% 60% 60% round 30%)",
+                },
+                {
+                    "clip-path": "inset(0% 0% 0% 0% round 0%)",
+                    ease: "none",
+                    duration: 10,
+                },
+                0
+            );
+
         });
     </script>
 
