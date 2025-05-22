@@ -1,8 +1,3 @@
-/* 문자 인코딩을 명확하게 지정하기 위해 사용 */
-/* 문자 인코딩: 컴퓨터가 글자를 숫자로 변환하는 규칙 */
-/* '한글' 사용시 브라우저가 이해하지 못할까봐 명시해주는 것 */
-@charset 'utf-8';
-
 html {
   font-family: "Noto Sans KR", sans-serif;
   font-size: 14px;
